@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "730806693694",
+    "project_id": "salice-flutter",
+    "storage_bucket": "salice-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730806693694:android:d166ff6eb3edf62d84c66f",
+        "android_client_info": {
+          "package_name": "com.example.salice_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730806693694-8ek0qgapno8favnqg7k86slfe9pns4id.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.salice_flutter",
+            "certificate_hash": "6285ed40cfc8f7bf294c757716f1b0046a274d7d"
+          }
+        },
+        {
+          "client_id": "730806693694-pf0bsp1o2dgt4a2mtmu33vhsmsvpfd6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB5bZ3G-pmhNdyJGZANeKdmxLmtQUfOv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730806693694-pf0bsp1o2dgt4a2mtmu33vhsmsvpfd6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
