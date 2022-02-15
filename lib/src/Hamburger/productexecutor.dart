@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import './hamburgers_list.dart';
-import 'dart:io';
-// import 'products_model.dart';
+import 'dart:convert';
+import 'package:salice_flutter/src/Model/products_model.dart';
+import 'package:flutter/services.dart' as rootBundle;
+import '../Model/products_model.dart';
 // import 'dart:convert';
 
 // void main() {
@@ -12,29 +11,32 @@ import 'dart:io';
 // }
 
 class ProductsExecutor {
-  //get directory
-  static Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    print('directory: ' + directory.path);
-    return directory.path;
-  }
+  // //get directory
+  // static Future<String> get _localPath async {
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   print('directory: ' + directory.path);
+  //   return directory.path;
+  // }
 
-  //get file
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/products.txt');
-  }
+  // //get file
+  // Future<File> get _localFile async {
+  //   final path = await _localPath;
+  //   return File('$path/products.txt');
+  // }
 
   //reading file
-  Future<String?> readProducts() async {
+  static Future<Object> readProducts() async {
     try {
-      final file = await _localFile;
+      final file =
+          await rootBundle.rootBundle.loadString('jsonfiles/products.json');
+      final list = json.decode(file) as List<dynamic>;
+      return list.map((data) => ProductsModel.fromJson(data)).toList();
 
-      final contents = await file.readAsString();
-      print('contents: ' + contents);
-      return contents;
+      // final contents = await file.readAsString();
+      // print('contents: ' + contents);
+      // return contents;
     } catch (e) {
-      return '';
+      return 'something went wrong while accessing json data products';
     }
   }
 

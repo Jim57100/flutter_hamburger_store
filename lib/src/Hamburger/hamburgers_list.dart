@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'burger_page.dart';
+import 'productexecutor.dart';
 
 class HamburgersList extends StatefulWidget {
   final int row;
@@ -68,10 +69,9 @@ class _HamburgersListState extends State<HamburgersList> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Burger('Bacon'),
+                          builder: (context) => Burger(burgers[index]),
                         ),
                       );
-                      //   Navigator.of(context).pushNamed(Burger.tag, arguments: burgers[index]);
                     },
                     child: Card(
                       color: Theme.of(context).primaryColor,
@@ -134,7 +134,12 @@ class _HamburgersListState extends State<HamburgersList> {
                   top: 75,
                   child: GestureDetector(
                     onTap: () {
-                      // Navigator.of(context).pushNamed(Burger.tag, arguments: burgers[index]);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Burger(burgers[index]),
+                        ),
+                      );
                     },
                     child: Row(
                       children: <Widget>[
@@ -149,8 +154,6 @@ class _HamburgersListState extends State<HamburgersList> {
                                         : whopperImg,
                       ],
                     ),
-
-                    // reverse ? crispyImg : baconImg,
                   ),
                 ),
               ],

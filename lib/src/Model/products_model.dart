@@ -19,15 +19,3 @@ class ProductsModel {
     price = json['price'];
   }
 }
-
-
-
-// class Category {
-//   int id = 0;
-//   String category = '';
-
-//   Category(this.id, this.category) {
-//     children:
-//     List.empty();
-//   }
-// }

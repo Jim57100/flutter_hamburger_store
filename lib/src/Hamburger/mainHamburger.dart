@@ -1,26 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
 import 'header.dart';
 import 'categories.dart';
 import 'hamburgers_list.dart';
-import 'burger_page.dart';
-// ignore: unused_import
-import 'package:google_fonts/google_fonts.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
 
 class MainHamburger extends StatelessWidget {
   const MainHamburger({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //WelcomeTheme
-    // final textTheme = Theme.of(context).textTheme;
-
     return MaterialApp(
       title: 'DeliverMe',
       home: const Hamburger(),
@@ -78,7 +67,9 @@ class _HamburgerState extends State<Hamburger> {
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             actions: [
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+                onPressed: () {},
+                icon: const Icon(Icons.shopping_cart),
+              ),
             ],
             pinned: true,
           ),

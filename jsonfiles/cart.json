@@ -1,14 +1,14 @@
 {
   "cart" : {
     "item1" : {
-      "name": ,
-      "price": ,
-      "quantity": ,
-    }
+      "name": "",
+      "price": "",
+      "quantity": ""
+    },
     "item2" : {
-      "name": ,
-      "price": ,
-      "quantity": ,
+      "name": "",
+      "price": "",
+      "quantity": ""
     }
   }
 }
