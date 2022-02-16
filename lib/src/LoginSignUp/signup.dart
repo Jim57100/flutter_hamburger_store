@@ -26,7 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
       TextEditingController();
 
   // our form key
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
 
   //firebase
   final _auth = FirebaseAuth.instance;

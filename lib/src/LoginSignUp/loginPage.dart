@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:salice_flutter/src/Hamburger/mainHamburger.dart';
-// import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
 import 'signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../Widget/bezierContainer.dart';
+// import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);

@@ -1,54 +1,45 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// import 'header.dart';
-// import 'categories.dart';
-// import 'hamburgers_list.dart';
-// import 'burger_page.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
+import 'header.dart';
+import 'categories.dart';
+import 'hamburgers_list.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
+class MainHamburger extends StatelessWidget {
+  const MainHamburger({Key? key}) : super(key: key);
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     //WelcomeTheme
-//     final textTheme = Theme.of(context).textTheme;
-
-//     return MaterialApp(
-//       title: 'Flutter project',
-//       home: const Hamburger(),
-
-//       routes: {Burger.tag: (_) => Burger()},
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         brightness: Brightness.light,
-//         canvasColor: Colors.teal,
-//         cardColor: Colors.white,
-//         primaryColor: Colors.teal,
-//         appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
-//         bottomAppBarColor: Colors.teal,
-//         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-//           backgroundColor: Colors.orange,
-//         ),
-//       ),
-//       darkTheme: ThemeData(
-//         brightness: Brightness.dark,
-//         canvasColor: Colors.teal,
-//         cardColor: const Color.fromRGBO(20, 20, 20, 1),
-//         primaryColor: Colors.teal,
-//         appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
-//         bottomAppBarColor: Colors.teal,
-//         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-//           backgroundColor: Colors.orange,
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'DeliverMe',
+      home: const Hamburger(),
+      // routes: {Burger.tag: (_) => const Burger()},
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        canvasColor: Colors.teal,
+        cardColor: Colors.white,
+        primaryColor: Colors.teal,
+        appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
+        bottomAppBarColor: Colors.teal,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.orange,
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        canvasColor: Colors.teal,
+        cardColor: const Color.fromRGBO(20, 20, 20, 1),
+        primaryColor: Colors.teal,
+        appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
+        bottomAppBarColor: Colors.teal,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.orange,
+        ),
+      ),
+    );
+  }
+}
 
 class Hamburger extends StatefulWidget {
   const Hamburger({Key? key}) : super(key: key);
@@ -57,7 +48,6 @@ class Hamburger extends StatefulWidget {
   _HamburgerState createState() => _HamburgerState();
 }
 
-// ignore: camel_case_types
 class _HamburgerState extends State<Hamburger> {
   @override
   Widget build(BuildContext context) {
@@ -73,24 +63,34 @@ class _HamburgerState extends State<Hamburger> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: const Text('Deliver Me'),
+            title: const Text('DeliverMe'),
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             actions: [
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+                onPressed: () {},
+                icon: const Icon(Icons.shopping_cart),
+              ),
             ],
             pinned: true,
           ),
-          // Header(),
-          // Categories(),
-          // const HamburgersList(row: 1),
+          Header(),
+          const Categories(),
+          const HamburgersList(row: 1),
           // const HamburgersList(row: 2),
+          // const HamburgersList(row: 3),
         ],
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MainHamburger(),
+            ),
+          );
+        },
         child: const Icon(Icons.home, color: Colors.white),
       ),
 
@@ -112,7 +112,16 @@ class _HamburgerState extends State<Hamburger> {
                   const Spacer(),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const WelcomePage(title: 'Welcome'),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.logout),
                     color: Colors.white,
                   ),

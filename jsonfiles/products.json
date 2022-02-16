@@ -1,0 +1,33 @@
+[
+  {
+    "id": 0,
+    "name": "Supreme Bacon",
+    "description": "Découvrez un vrai bon classique: du fromage fondu, du bacon, des oignons et évidemment sa viande grillée à la flamme. Le tout accompagné par une sauce BBQ et une sauce fumée ! ",
+    "price": "6.95"
+  },
+  {
+    "id": 1,
+    "name": "Chicken Farmy",
+    "description": "Un délicieux burger au poulet (très !) croustillant, accompagné de tomates fraîches, de salade et d’une onctueuse mayonnaise.",
+    "price": "6.50"
+  },
+  {
+    "id": 2,
+    "name": "Sailor Fish",
+    "description": "",
+    "price": "6.65"
+  },
+  {
+    "id": 3,
+    "name": "Maxi Wrap",
+    "description": "",
+    "price": "6.10"
+  },
+  {
+    "id": 4,
+    "name": "Double steacky trouble",
+    "description": "",
+    "price": "7.10"
+  }
+  
+]
