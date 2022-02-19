@@ -11,11 +11,11 @@ class _HamburgersListMiniState extends State<HamburgersListMini> {
   //Accès aux Images
   Widget baconImg = SizedBox(
     height: 110,
-    child: Image.asset('images/burger_bacon.png'),
+    child: Image.asset('images/burgers/bacon.png'),
   );
   Widget crispyImg = SizedBox(
     height: 80,
-    child: Image.asset('images/burger_crispy.png'),
+    child: Image.asset('images/burgers/crispy.png'),
   );
   int items = 10;
   @override

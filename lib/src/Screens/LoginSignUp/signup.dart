@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../Model/UserModel.dart';
+import '../../Model/user.dart';
 import 'package:flutter/material.dart';
-import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
-import '/src/Widget/bezierContainer.dart';
-import 'loginPage.dart';
+import 'package:salice_flutter/src/Screens/LoginSignUp/welcome.dart';
+import '../../Widget/bezier_container.dart';
+import 'login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -314,6 +314,7 @@ class _SignUpPageState extends State<SignUpPage> {
           errorMessage = "An undefined Error happened.";
       }
       Fluttertoast.showToast(msg: errorMessage!);
+      // ignore: avoid_print
       print(error.code);
     }
     // }

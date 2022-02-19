@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:salice_flutter/src/Hamburger/mainHamburger.dart';
+import 'package:salice_flutter/src/Screens/store.dart';
 import 'signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../Widget/bezierContainer.dart';
+import '../../Widget/bezier_container.dart';
 // import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,9 +24,11 @@ class _LoginPageState extends State<LoginPage> {
 
   //firebase
   final _auth = FirebaseAuth.instance;
-  // form key
+
+  /// form key
   // final _formKey = GlobalKey<FormState>();
-  // string for displaying the error Message
+
+  /// string for displaying the error Message
   String? errorMessage;
 
   ///Widgets
@@ -354,7 +356,7 @@ class _LoginPageState extends State<LoginPage> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: "Login Successful"),
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const Hamburger())),
+                    MaterialPageRoute(builder: (context) => const Store())),
               });
     } on FirebaseAuthException catch (error) {
       switch (error.code) {
@@ -381,6 +383,7 @@ class _LoginPageState extends State<LoginPage> {
           errorMessage = "An undefined Error happened.";
       }
       Fluttertoast.showToast(msg: errorMessage!);
+      // ignore: avoid_print
       print(error.code);
     }
     // }

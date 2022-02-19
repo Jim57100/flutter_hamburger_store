@@ -1,10 +1,10 @@
-import 'hamburgers_list_mini.dart';
+import '../Widget/hamburgers_list_mini.dart';
 import 'package:flutter/material.dart';
 
 class Burger extends StatefulWidget {
   const Burger(this.title, {Key? key}) : super(key: key);
   final String title;
-  // static const tag = "burger_page";
+
   @override
   _BurgerState createState() => _BurgerState();
 }
@@ -38,8 +38,7 @@ class _BurgerState extends State<Burger> {
   Widget build(BuildContext context) {
     bool light = Theme.of(context).brightness == Brightness.light;
     // var title = ModalRoute.of(context)!.settings.arguments as String;
-    Size size = MediaQuery.of(context)
-        .size; //Donne la hauteur et la largeur de l'application
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -88,7 +87,6 @@ class _BurgerState extends State<Burger> {
                 ),
                 Row(
                   children: [
-                    // nameArgument == "Crispy Burger" ? crispyImg : baconImg,
                     widget.title == 'Bacon'
                         ? baconImg
                         : widget.title == 'Chicken'

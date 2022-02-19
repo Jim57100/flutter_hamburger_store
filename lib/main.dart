@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
+import 'package:salice_flutter/src/Screens/LoginSignUp/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {

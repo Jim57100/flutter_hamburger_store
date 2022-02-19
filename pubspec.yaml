@@ -72,7 +72,7 @@ flutter:
     - images/burgers/fish.png
     - images/burgers/wrap.png
     - images/burgers/whopper.png
-    - jsonfiles/products.json
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

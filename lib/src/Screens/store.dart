@@ -1,18 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:salice_flutter/src/LoginSignUp/welcomePage.dart';
-import 'header.dart';
-import 'categories.dart';
+import 'package:salice_flutter/src/Screens/LoginSignUp/welcome.dart';
+import '../Widget/header.dart';
+import '../Widget/categories.dart';
 import 'hamburgers_list.dart';
 
-class MainHamburger extends StatelessWidget {
-  const MainHamburger({Key? key}) : super(key: key);
+class AppStore extends StatelessWidget {
+  const AppStore({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DeliverMe',
-      home: const Hamburger(),
+      home: const Store(),
       // routes: {Burger.tag: (_) => const Burger()},
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -41,14 +41,14 @@ class MainHamburger extends StatelessWidget {
   }
 }
 
-class Hamburger extends StatefulWidget {
-  const Hamburger({Key? key}) : super(key: key);
+class Store extends StatefulWidget {
+  const Store({Key? key}) : super(key: key);
 
   @override
-  _HamburgerState createState() => _HamburgerState();
+  _StoreState createState() => _StoreState();
 }
 
-class _HamburgerState extends State<Hamburger> {
+class _StoreState extends State<Store> {
   @override
   Widget build(BuildContext context) {
     /// Set variable for switching the DarkMode
@@ -73,7 +73,7 @@ class _HamburgerState extends State<Hamburger> {
             ],
             pinned: true,
           ),
-          Header(),
+          const Header(),
           const Categories(),
           const HamburgersList(row: 1),
           // const HamburgersList(row: 2),
@@ -87,7 +87,7 @@ class _HamburgerState extends State<Hamburger> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const MainHamburger(),
+              builder: (context) => const AppStore(),
             ),
           );
         },
