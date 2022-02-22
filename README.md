@@ -5,13 +5,13 @@ A hamburger fastfood app
 
 ## Requirements
 
-- Works on Android Smartphone
-- Distant access to data (Firebase)
-- data stored localy (Json or else)
-- at least 2 screens with data send from one to another
-- at least one screen with landscape interface
-- Code spread between interface and data access
-- PDF introducing the app (globaly, technical specificity, user manual)
+- OK - Works on Android Smartphone
+- OK - Distant access to data (Firebase)
+- NOK - data stored localy (Json or else)
+- OK - at least 2 screens with data send from one to another
+- OK - at least one screen with landscape interface
+- OK - Code spread between interface and data access
+- OK - PDF introducing the app (globaly, technical specificity, user manual)
 
 ## Getting Started
 

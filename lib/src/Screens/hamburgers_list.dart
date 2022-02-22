@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'burger_page.dart';
 
 class HamburgersList extends StatefulWidget {
@@ -10,6 +11,7 @@ class HamburgersList extends StatefulWidget {
 }
 
 class _HamburgersListState extends State<HamburgersList> {
+  Color _favIconColor = Colors.grey;
   @override
   Widget build(BuildContext context) {
     ///Variables
@@ -103,8 +105,20 @@ class _HamburgersListState extends State<HamburgersList> {
                                   width: 50,
                                   height: 50,
                                   child: Card(
-                                    child: const Icon(
-                                      Icons.add,
+                                    child: IconButton(
+                                      icon: Icon(
+                                        FontAwesomeIcons.heart,
+                                        color: _favIconColor,
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          if (_favIconColor == Colors.grey) {
+                                            _favIconColor = Colors.red;
+                                          } else {
+                                            _favIconColor = Colors.grey;
+                                          }
+                                        });
+                                      },
                                     ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),

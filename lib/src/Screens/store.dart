@@ -1,18 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:salice_flutter/src/Screens/LoginSignUp/welcome.dart';
+import 'package:salice_flutter/src/Screens/cart.dart';
 import '../Widget/header.dart';
 import '../Widget/categories.dart';
 import 'hamburgers_list.dart';
 
 class AppStore extends StatelessWidget {
-  const AppStore({Key? key}) : super(key: key);
-
+  const AppStore({required this.email, Key? key}) : super(key: key);
+  final String email;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DeliverMe',
-      home: const Store(),
+      home: Store(
+        email: email,
+      ),
       // routes: {Burger.tag: (_) => const Burger()},
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -42,8 +45,8 @@ class AppStore extends StatelessWidget {
 }
 
 class Store extends StatefulWidget {
-  const Store({Key? key}) : super(key: key);
-
+  const Store({required this.email, Key? key}) : super(key: key);
+  final String email;
   @override
   _StoreState createState() => _StoreState();
 }
@@ -53,6 +56,7 @@ class _StoreState extends State<Store> {
   Widget build(BuildContext context) {
     /// Set variable for switching the DarkMode
     bool light = Theme.of(context).brightness == Brightness.light;
+    String email = widget.email;
     return Scaffold(
       ///Change Background in DarkMode
       backgroundColor: light
@@ -67,13 +71,22 @@ class _StoreState extends State<Store> {
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Cart(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.shopping_cart),
               ),
             ],
             pinned: true,
           ),
-          const Header(),
+          Header(
+            email: widget.email,
+          ),
           const Categories(),
           const HamburgersList(row: 1),
           // const HamburgersList(row: 2),
@@ -87,7 +100,9 @@ class _StoreState extends State<Store> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const AppStore(),
+              builder: (context) => AppStore(
+                email: email,
+              ),
             ),
           );
         },

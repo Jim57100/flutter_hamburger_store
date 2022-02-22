@@ -10,7 +10,7 @@ class HamburgersListMini extends StatefulWidget {
 class _HamburgersListMiniState extends State<HamburgersListMini> {
   //Accès aux Images
   Widget baconImg = SizedBox(
-    height: 110,
+    height: 80,
     child: Image.asset('images/burgers/bacon.png'),
   );
   Widget crispyImg = SizedBox(

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../Model/user.dart';
+import 'package:salice_flutter/Model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:salice_flutter/src/Screens/LoginSignUp/welcome.dart';
 import '../../Widget/bezier_container.dart';
@@ -328,7 +328,7 @@ class _SignUpPageState extends State<SignUpPage> {
     // calling our user model
     UserModel userModel = UserModel();
 
-    // sedning these values
+    // sending these values
     userModel.email = user!.email;
     userModel.uid = user.uid;
 

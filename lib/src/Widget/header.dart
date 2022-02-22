@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Header extends StatefulWidget {
-  const Header({Key? key}) : super(key: key);
-
+  const Header({required this.email, Key? key}) : super(key: key);
+  final String email;
   @override
   _HeaderState createState() => _HeaderState();
 }
@@ -12,6 +12,7 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     bool light = Theme.of(context).brightness == Brightness.light;
     Size size = MediaQuery.of(context).size;
+    String email = widget.email;
     return SliverList(
       delegate: SliverChildListDelegate(
         [
@@ -45,8 +46,8 @@ class _HeaderState extends State<Header> {
                             const SizedBox(width: 5),
                             Column(
                               children: [
-                                const Text('Jim',
-                                    style: TextStyle(
+                                Text(email,
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -65,7 +66,7 @@ class _HeaderState extends State<Header> {
                             ),
                             const Spacer(),
                             const Text(
-                              '35€',
+                              '0€',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

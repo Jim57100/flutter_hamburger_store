@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     title == "Email id" ? emailController : passwordController,
                 keyboardType: title == "Email id"
                     ? TextInputType.emailAddress
-                    : TextInputType.visiblePassword, //???
+                    : TextInputType.visiblePassword,
                 textInputAction: title == "Email id"
                     ? TextInputAction.next
                     : TextInputAction.done,
@@ -355,8 +355,10 @@ class _LoginPageState extends State<LoginPage> {
           .signInWithEmailAndPassword(email: email, password: password)
           .then((uid) => {
                 Fluttertoast.showToast(msg: "Login Successful"),
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const Store())),
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Store(
+                          email: email,
+                        ))),
               });
     } on FirebaseAuthException catch (error) {
       switch (error.code) {
