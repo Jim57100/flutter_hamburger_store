@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salice_flutter/dao/product_dao.dart';
 import 'login.dart';
 import 'signup.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -128,6 +129,11 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
+    try {
+      ProductDao.readProducts();
+    } catch (e) {
+      print('Got IT !');
+    }
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

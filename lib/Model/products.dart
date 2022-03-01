@@ -4,11 +4,11 @@ class ProductsModel {
   final String description;
   final String imageUrl;
   final int price;
-  final int quantity;
+  final bool isFavorite;
 
   //Constructor
   ProductsModel(this.id, this.name, this.description, this.imageUrl, this.price,
-      this.quantity);
+      this.isFavorite);
 
   ProductsModel.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -16,7 +16,7 @@ class ProductsModel {
         description = json['description'],
         imageUrl = json['imageUrl'],
         price = json['price'],
-        quantity = json['quantity'];
+        isFavorite = json['isFavorite'];
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -24,6 +24,6 @@ class ProductsModel {
         'description': description,
         'imageUrl': imageUrl,
         'price': price,
-        'quantity': quantity
+        'isFavorite': isFavorite,
       };
 }
