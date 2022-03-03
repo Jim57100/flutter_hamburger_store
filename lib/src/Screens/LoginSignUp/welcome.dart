@@ -128,12 +128,28 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    try {
-      ProductDao.readProducts();
-    } catch (e) {
-      print('Got IT !');
+  initState() {
+    chercheDonnees();
+    super.initState();
+  }
+
+  void chercheDonnees() async {
+    // ignore: avoid_print
+    print("initState");
+    var modele = await ProductDao.readProducts();
+    if (modele == null) {
+      // ignore: avoid_print
+      print("pas trouvé !");
+
+      ProductDao.writeProducts(await ProductDao.getData());
+    } else {
+      // ignore: avoid_print
+      print("OK TROUVé !");
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

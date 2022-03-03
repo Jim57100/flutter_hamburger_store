@@ -13,19 +13,9 @@ class HamburgersList extends StatefulWidget {
 }
 
 class _HamburgersListState extends State<HamburgersList> {
-  Color _favIconColor = Colors.grey;
+  bool isFavorited = false;
   @override
   Widget build(BuildContext context) {
-    ///Variables
-    // int index = 5;
-    List<String> burgers = <String>[
-      'Bacon',
-      'Chicken',
-      'Fish',
-      'Wrap',
-      'Whopper'
-    ];
-
     return SliverToBoxAdapter(
       child: Container(
         height: widget.row == 2 ? 330 : 240, //hauteur de la row
@@ -52,11 +42,15 @@ class _HamburgersListState extends State<HamburgersList> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            // Fait passer une variable d'une page à une autre
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Burger(items[index].name),
+                                builder: (context) => Burger(
+                                  items[index].name,
+                                  items[index].imageUrl,
+                                  items[index].price,
+                                  items[index].description,
+                                ),
                               ),
                             );
                           },
@@ -67,7 +61,7 @@ class _HamburgersListState extends State<HamburgersList> {
                               child: Column(
                                 children: [
                                   Text(
-                                    burgers[index],
+                                    items[index].name,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
@@ -79,8 +73,7 @@ class _HamburgersListState extends State<HamburgersList> {
                                     children: [
                                       const Spacer(),
                                       Text(
-                                        items[index].price.toString(),
-                                        // '6.95€',
+                                        '${items[index].price.toString()}€',
                                         style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,
@@ -93,19 +86,28 @@ class _HamburgersListState extends State<HamburgersList> {
                                         height: 50,
                                         child: Card(
                                           child: IconButton(
-                                            icon: Icon(
-                                              FontAwesomeIcons.heart,
-                                              color: _favIconColor,
-                                            ),
+                                            icon: isFavorited
+                                                ? const Icon(Icons.star)
+                                                : const Icon(Icons.star_border),
+                                            color: Colors.red[500],
                                             onPressed: () {
-                                              setState(() {
-                                                if (_favIconColor ==
-                                                    Colors.grey) {
-                                                  _favIconColor = Colors.red;
-                                                } else {
-                                                  _favIconColor = Colors.grey;
-                                                }
-                                              });
+                                              if (items[index].isFavorite) {
+                                                ProductDao.writeProducts(
+                                                    items[index].isFavorite =
+                                                        false);
+                                                isFavorited =
+                                                    items[index].isFavorite;
+                                                // ignore: avoid_print
+                                                print(items[index].isFavorite);
+                                              } else {
+                                                ProductDao.writeProducts(
+                                                    items[index].isFavorite =
+                                                        true);
+                                                isFavorited =
+                                                    items[index].isFavorite;
+                                                // ignore: avoid_print
+                                                print(items[index].isFavorite);
+                                              }
                                             },
                                           ),
                                           shape: RoundedRectangleBorder(
@@ -133,13 +135,17 @@ class _HamburgersListState extends State<HamburgersList> {
                         ),
                       ),
                       Positioned(
-                        top: 75,
+                        top: 60,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Burger(items[index].name),
+                                builder: (context) => Burger(
+                                    items[index].name,
+                                    items[index].imageUrl,
+                                    items[index].price,
+                                    items[index].description),
                               ),
                             );
                           },

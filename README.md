@@ -6,12 +6,12 @@ A hamburger fastfood app
 ## Requirements
 
 - OK - Works on Android Smartphone
-- OK - Distant access to data (Firebase)
-- NOK - data stored localy (Json or else)
-- OK - at least 2 screens with data send from one to another
-- OK - at least one screen with landscape interface
-- OK - Code spread between interface and data access
-- OK - PDF introducing the app (globaly, technical specificity, user manual)
+- OK - Distant access to data (Firebase for user auth and products data)
+- OK - data stored localy (Json for priducts local storage and favorite persistance)
+- OK - at least 2 screens with data send from one to another (email from login to store + product data from store to detailed burger page)
+- OK - at least one screen with landscape interface (login, subsribe, detailed burger page)
+- OK - Code spread between interface and data access (see dao and model)
+- OK - PDF introducing the app (globaly, technical specificity, user manual) (see github project)
 
 ## Getting Started
 
