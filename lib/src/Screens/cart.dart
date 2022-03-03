@@ -1,9 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' as root_bundle;
-import 'package:salice_flutter/Model/cart_model.dart';
 import 'package:salice_flutter/Model/products.dart';
-import 'package:salice_flutter/dao/cart_dao.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key}) : super(key: key);

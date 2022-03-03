@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salice_flutter/dao/product_dao.dart';
 import 'login.dart';
 import 'signup.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -124,6 +125,27 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ]),
     );
+  }
+
+  @override
+  initState() {
+    chercheDonnees();
+    super.initState();
+  }
+
+  void chercheDonnees() async {
+    // ignore: avoid_print
+    print("initState");
+    var modele = await ProductDao.readProducts();
+    if (modele == null) {
+      // ignore: avoid_print
+      print("pas trouvé !");
+
+      ProductDao.writeProducts(await ProductDao.getData());
+    } else {
+      // ignore: avoid_print
+      print("OK TROUVé !");
+    }
   }
 
   @override

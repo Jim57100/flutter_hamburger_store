@@ -6,7 +6,7 @@
     "description": "Discover a real good classic: melted cheese, bacon, onions and of course its flame-grilled meat. All accompanied by a BBQ sauce and a smoked sauce!",
     "imageUrl": "https://png.pngitem.com/pimgs/s/523-5233832_double-cheese-bacon-burger-king-hd-png-download.png",
     "price": 6.95,
-    "quantity": 0
+    "isFavorite": false
   },
   {
     "id": 1,
@@ -15,7 +15,7 @@
     "description": "A (very!) delicious crispy chicken burger, served with fresh tomatoes, salad and a creamy mayonnaise.",
     "imageUrl": "https://png.pngitem.com/pimgs/s/145-1456713_crispy-chicken-burger-king-hd-png-download.png",
     "price": 6.50,
-    "quantity": 0
+    "isFavorite": false
   },
   {
     "id": 2,
@@ -24,7 +24,7 @@
     "description": "Craving fish? Let yourself be tempted by the Sailor Fish! Crispy breaded fish, a creamy sauce and a crunchy salad.",
     "imageUrl": "https://png.pngitem.com/pimgs/s/173-1738665_burger-king-halloumi-burger-uk-hd-png-download.png",
     "price": 6.65,
-    "quantity": 0
+    "isFavorite": false
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "description": "Discover the Maxi Wrap! A slightly spicy sauce, crispy onions, two slices of cheese and an irresistible crispy breaded chicken. All wrapped up in a tortilla!",
     "imageUrl": "https://png.pngitem.com/pimgs/s/37-374415_crispy-wrap-burger-king-hd-png-download.png",
     "price": 6.10,
-    "quantity": 0
+    "isFavorite": false
   },
   {
     "id": 4,
@@ -42,7 +42,7 @@
     "description": "Three flame-grilled beef, three slices of cheese, ketchup, mustard and two slices of pickles.",
     "imageUrl": "https://png.pngitem.com/pimgs/s/381-3812222_double-cheeseburger-burger-king-pris-hd-png-download.png",
     "price": 7.30,
-    "quantity": 0
+    "isFavorite": false
   },
   {
     "id": 5,
@@ -51,7 +51,7 @@
     "description": "Our favorite little one. Flame-grilled beef from France, ketchup, mustard and pickles. A classic.",
     "imageUrl": "https://png.pngitem.com/pimgs/s/456-4563463_image-rebel-whopper-burger-king-hd-png-download.png",
     "price": 4.80,
-    "quantity": 0
+    "isFavorite": false
   }
   
 ]

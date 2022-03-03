@@ -1,11 +1,13 @@
-import 'package:salice_flutter/controller/file_controller.dart';
-
 import '../Widget/hamburgers_list_mini.dart';
 import 'package:flutter/material.dart';
 
 class Burger extends StatefulWidget {
-  const Burger(this.title, {Key? key}) : super(key: key);
-  final String title;
+  const Burger(this.name, this.image, this.price, this.description, {Key? key})
+      : super(key: key);
+  final String name;
+  final String image;
+  final double price;
+  final String description;
 
   @override
   _BurgerState createState() => _BurgerState();
@@ -99,15 +101,12 @@ class _BurgerState extends State<Burger> {
   }
 
   Widget _images() {
-    return widget.title == 'Bacon'
-        ? baconImg
-        : widget.title == 'Chicken'
-            ? crispyImg
-            : widget.title == 'Fish'
-                ? fishImg
-                : widget.title == 'Wrap'
-                    ? wrapImg
-                    : whopperImg;
+    return SizedBox(
+      height: 120,
+      child: Image(
+        image: NetworkImage(widget.image),
+      ),
+    );
   }
 
   Widget _textDescription() {
@@ -119,20 +118,20 @@ class _BurgerState extends State<Burger> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'Description',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 28,
           ),
           Text(
-            "Chuck Norris can clap with one hand. Chuck Norris doesn’t read books. He stares them down until he gets the information he wants. When Chuck Norris does a pushup, he’s pushing the Earth down. The dark is afraid of Chuck Norris. Chuck Norris can make a slinky go upstairs.",
-            style: TextStyle(
+            widget.description,
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
@@ -149,9 +148,9 @@ class _BurgerState extends State<Burger> {
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.grey[350]),
-          child: const Text(
-            '6.95€',
-            style: TextStyle(
+          child: Text(
+            '${widget.price.toString()}€',
+            style: const TextStyle(
                 color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
           ),
         ),
@@ -191,20 +190,20 @@ class _BurgerState extends State<Burger> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'Description',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
-            "Discover a real good classic: melted cheese, bacon, onions and of course its flame-grilled meat. All accompanied by a BBQ sauce and a smoked sauce!",
-            style: TextStyle(
+            widget.description,
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
@@ -224,7 +223,7 @@ class _BurgerState extends State<Burger> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.title,
+            widget.name,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
@@ -293,7 +292,7 @@ class _BurgerState extends State<Burger> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.title,
+            widget.name,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,

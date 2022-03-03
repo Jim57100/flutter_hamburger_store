@@ -3,12 +3,12 @@ class ProductsModel {
   final String name;
   final String description;
   final String imageUrl;
-  final int price;
-  final int quantity;
+  final double price;
+  bool isFavorite;
 
   //Constructor
   ProductsModel(this.id, this.name, this.description, this.imageUrl, this.price,
-      this.quantity);
+      this.isFavorite);
 
   ProductsModel.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -16,7 +16,19 @@ class ProductsModel {
         description = json['description'],
         imageUrl = json['imageUrl'],
         price = json['price'],
-        quantity = json['quantity'];
+        isFavorite = json['isFavorite'];
+
+  static List<ProductsModel> fromList(List<dynamic> jsonList) {
+    List<ProductsModel> liste = [];
+
+    for (var unObj in jsonList) {
+      var p = ProductsModel.fromJson(unObj);
+      liste.add(p);
+      // ignore: avoid_print
+      print(p);
+    }
+    return liste;
+  }
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -24,6 +36,6 @@ class ProductsModel {
         'description': description,
         'imageUrl': imageUrl,
         'price': price,
-        'quantity': quantity
+        'isFavorite': isFavorite,
       };
 }
