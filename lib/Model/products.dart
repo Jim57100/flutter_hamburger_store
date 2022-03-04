@@ -4,7 +4,7 @@ class ProductsModel {
   final String description;
   final String imageUrl;
   final double price;
-  bool isFavorite;
+  bool isFavorite = false;
 
   //Constructor
   ProductsModel(this.id, this.name, this.description, this.imageUrl, this.price,
